@@ -9,6 +9,10 @@
     <p><%= @article.body %></p>
   </div>
   <div class="large-3 small-12 columns">
-    <%= link_to "<< Back to Articles List", articles_path %>
+    <%= link_to "<< BACK TO ARTICLES LIST", articles_path, class: 'button' %>
+    <%= link_to "DELETE ARTICLE", article_path(@article), class: 'button alert', method: :delete  %>
+    <%= link_to "EDIT ARTICLE", edit_article_path(@article), class: 'button secondary' %>
   </div>
 </div>
+
+<!-- data: {confirm: "Really delete the article?"} not working -->
