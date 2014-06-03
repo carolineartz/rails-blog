@@ -16,7 +16,11 @@
 
 <section role="main">
   <div class="row">
-    <h3 class="flash large-12 columns"><%= flash.notice %></h3>
+    <% if flash.notice %>
+    <div class="alert-box success large-12 columns">
+      <%= flash.notice  %>
+    </div>
+    <% end %>
   </div>
     <%= yield %>
     <%= javascript_include_tag "application" %>

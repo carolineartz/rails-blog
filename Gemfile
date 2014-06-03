@@ -9,12 +9,29 @@ group :development do
   gem 'sqlite3'
   gem 'spring'
   gem 'rails-erd'
+
+  gem 'annotate', '>=2.5.0'
+  gem 'better_errors'
+
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+
+  gem 'guard' 
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+
+  if RUBY_PLATFORM.downcase.include?("darwin")
+    gem 'rb-fsevent'
+    gem 'growl' # also install growlnotify
+  end
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
