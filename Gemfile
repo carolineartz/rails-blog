@@ -22,19 +22,19 @@ group :development do
 
 end
 
-group :test do
-  # Mac specific gems
-  if RUBY_PLATFORM =~ /darwin/i
-    gem 'rb-fsevent'
-    gem 'growl'
-  end
+# group :test do
+#   # Mac specific gems
+#   if RUBY_PLATFORM =~ /darwin/i
+#     gem 'rb-fsevent'
+#     gem 'growl'
+#   end
 
-  # Linux specific gems
-  if RUBY_PLATFORM =~ /linux/i
-    gem 'rb-inotify'
-    gem 'libnotify'
-  end
-end
+#   # Linux specific gems
+#   if RUBY_PLATFORM =~ /linux/i
+#     gem 'rb-inotify'
+#     gem 'libnotify'
+#   end
+# end
 
 group :production do
   gem 'pg'
