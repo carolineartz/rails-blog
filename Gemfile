@@ -6,6 +6,7 @@ gem 'rails', '4.1.1'
 gem 'rerun'
 # Use sqlite3 as the database for Active Record
 
+gem 'foundation-rails'
 group :development do
 
   gem 'sqlite3'
@@ -13,11 +14,11 @@ group :development do
 
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-
+  gem 'rails_layout'
   gem 'guard' 
-   gem 'guard-rspec', require: false
-   gem 'guard-spork', require: false
-   gem 'growl_notify'
+  gem 'guard-rspec', require: false
+  gem 'guard-spork', require: false
+  gem 'growl_notify'
 
 end
 
@@ -43,7 +44,7 @@ end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
-gem 'foundation-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views

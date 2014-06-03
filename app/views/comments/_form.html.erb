@@ -1,10 +1,11 @@
 <div class="row">
   <div class="columns large-12 small-12">
-  <h3>Post a Comment</h3>
+  <h4>Post a Comment</h4>
 
   <%= form_for [ @article, @comment ] do |f| %>
     <p>
-      <%= f.label :author_name %><br/>
+      <%= f.label :author_name, "Your Name"  %>
+<br/>
       <%= f.text_field :author_name %>
     </p>
     <p>
@@ -12,7 +13,7 @@
       <%= f.text_area :body %>
     </p>
     <p>
-      <%= f.submit 'Submit' %>
+       <%= f.submit class: "button" %>
     </p>
   <% end %>
   </div>
