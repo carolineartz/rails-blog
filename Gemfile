@@ -3,27 +3,35 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
+gem 'rerun'
 # Use sqlite3 as the database for Active Record
 
 group :development do
-  gem 'sqlite3'
-  gem 'spring'
-  gem 'rails-erd'
 
-  gem 'annotate', '>=2.5.0'
-  gem 'better_errors'
+  gem 'sqlite3'
+  gem 'spork'
 
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 
   gem 'guard' 
-  gem 'guard-livereload'
-  gem 'guard-rspec'
-  gem 'guard-bundler'
+   gem 'guard-rspec', require: false
+   gem 'guard-spork', require: false
+   gem 'growl_notify'
 
-  if RUBY_PLATFORM.downcase.include?("darwin")
+end
+
+group :test do
+  # Mac specific gems
+  if RUBY_PLATFORM =~ /darwin/i
     gem 'rb-fsevent'
-    gem 'growl' # also install growlnotify
+    gem 'growl'
+  end
+
+  # Linux specific gems
+  if RUBY_PLATFORM =~ /linux/i
+    gem 'rb-inotify'
+    gem 'libnotify'
   end
 end
 

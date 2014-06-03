@@ -1,4 +1,6 @@
-<%= form_for(@article) do |f| %>
+<div class="row">
+  <div class="columns large-12 small-12">
+    <%= form_for(@article) do |f| %>
     <ul>
         <% @article.errors.full_messages.each do |error| %>
       <li>
@@ -18,3 +20,6 @@
         <%= f.submit class: "button" %>
     </p>
 <% end %>
+  </div>
+</div>
+

@@ -1,25 +1,43 @@
 class ArticlesController < ApplicationController
+  before_action :get_article, :only => [:show, :edit, :update, :destroy]
+  
   include ArticlesHelper
+
 
   def index
     @articles = Article.all
   end
 
+
   def show
-    @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
+
 
   def new
     @article = Article.new
   end
 
-  def create
-    #fail => see note
-    #MYNOTE: @article = Article.new(params[:article]) => will make blow up for security reasons not a good idea to blindly save parameters sent into us via the params hash (USE STRONG PARAMETERS)
-    # MYNOTE: @article.title = params[:article][:title] #one way
-    @article = Article.new(article_params)  # MYNOTE: fix by putting methods require and permit, usually in helper file
-    @article.save
 
+  def create
+    @article = Article.new(article_params)
+    @article.save
+    redirect_to article_path(@article)
+  end
+
+
+  def edit
+    # @article = Article.find(params[:id])
+  end
+
+
+  def update
+    @article.update(article_params)
+    # @article = Article.find(params[:id])
+
+
+    flash.notice = "Article '#{@article.title}' Updated!"
     redirect_to article_path(@article)
   end
 
@@ -30,19 +48,24 @@ class ArticlesController < ApplicationController
     redirect_to action: "index"
   end
 
-  def edit
-    @article = Article.find(params[:id])
-  end
 
-  def update
-    @article = Article.find(params[:id])
-    @article.update(article_params)
-
-    flash.notice = "Article '#{@article.title}' Updated!"
-    redirect_to article_path(@article)
-  end
+  # private
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,3 +76,9 @@ end
 #  "article"=>{"title"=>"",
 #  "body"=>""},
 #  "commit"=>"Create Article"}
+
+
+   #fail => see note
+    #MYNOTE: @article = Article.new(params[:article]) => will make blow up for security reasons not a good idea to blindly save parameters sent into us via the params hash (USE STRONG PARAMETERS)
+    # MYNOTE: @article.title = params[:article][:title] #one way
+    # @article = Article.new(article_params)  # MYNOTE: fix by putting methods require and permit, usually in helper file

@@ -8,6 +8,7 @@
   <div class="large-9 small-12 columns">
     <p><%= @article.body %></p>
   </div>
+  
   <div class="large-9 small-12 columns">
     <h3>Comments</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
