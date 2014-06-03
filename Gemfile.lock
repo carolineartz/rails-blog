@@ -54,7 +54,6 @@ GEM
     foundation-rails (5.2.3.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    growl (1.0.3)
     growl_notify (0.0.3)
       rb-appscript
     guard (2.6.1)
@@ -193,7 +192,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   factory_girl_rails
   foundation-rails
-  growl
   growl_notify
   guard
   guard-rspec
@@ -204,7 +202,6 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails_12factor
   rails_layout
-  rb-fsevent
   rerun
   rspec-rails
   sass-rails (~> 4.0.3)
